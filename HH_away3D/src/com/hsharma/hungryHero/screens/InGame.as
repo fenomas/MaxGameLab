@@ -14,6 +14,7 @@
 package com.hsharma.hungryHero.screens
 {
 	import com.hsharma.hungryHero.events.NavigationEvent;
+	import com.hsharma.hungryHero.gameElements.GameBackground3D;
 	import com.hsharma.hungryHero.gameElements.GameBackground;
 	import com.hsharma.hungryHero.gameElements.Hero;
 	import com.hsharma.hungryHero.gameElements.Item;
@@ -240,10 +241,16 @@ package com.hsharma.hungryHero.screens
 		/** Tween object for game over container. */
 		private var tween_gameOverContainer:Tween;
 		
+		
+		// added by andy
+		private var bg3D:GameBackground3D;
+
+		
+		
 		// ------------------------------------------------------------------------------------------------------------
 		// METHODS
 		// ------------------------------------------------------------------------------------------------------------
-
+		
 		public function InGame()
 		{
 			super();
@@ -278,6 +285,9 @@ package com.hsharma.hungryHero.screens
 			// Draw background.
 			bg = new GameBackground();
 			this.addChild(bg);
+			
+			// create Away3D background layer
+			bg3D = new GameBackground3D();
 			
 			// Is hardware rendering, draw particles.
 			if (isHardwareRendering)
@@ -354,6 +364,7 @@ package com.hsharma.hungryHero.screens
 			
 			// Pause the background animation too.
 			bg.gamePaused = gamePaused;
+			bg3D.gamePaused = gamePaused;
 		}
 		
 		/**
@@ -537,6 +548,9 @@ package com.hsharma.hungryHero.screens
 			// Dispose screen temporarily.
 			disposeTemporarily();
 			
+			// init 3D background layer
+			bg3D.init();
+			
 			this.visible = true;
 			
 			// Calculate elapsed time.
@@ -620,6 +634,9 @@ package com.hsharma.hungryHero.screens
 		 */
 		private function disposeTemporarily():void
 		{
+			// dispose background 3D layer
+			bg3D.dispose();
+			
 			SoundMixer.stopAll();
 			
 			gameOverContainer.visible = false;
@@ -718,6 +735,7 @@ package com.hsharma.hungryHero.screens
 							
 							playerSpeed += (GameConstants.HERO_MIN_SPEED - playerSpeed) * 0.05;
 							bg.speed = playerSpeed * elapsed;
+							bg3D.speed = bg.speed;
 						}
 						else
 						{
@@ -846,6 +864,7 @@ package com.hsharma.hungryHero.screens
 						
 						// Set the background's speed based on hero's speed.
 						bg.speed = playerSpeed * elapsed;
+						bg3D.speed = bg.speed;
 						
 						// Calculate maximum distance travelled.
 						scoreDistance += (playerSpeed * elapsed) * 0.1;
@@ -918,6 +937,7 @@ package com.hsharma.hungryHero.screens
 						
 						// Set the background's speed based on hero's speed.
 						bg.speed = Math.floor(playerSpeed * elapsed);
+						bg3D.speed = bg.speed;
 						
 						break;
 				}
@@ -1526,6 +1546,8 @@ package com.hsharma.hungryHero.screens
 			tween_gameOverContainer = new Tween(gameOverContainer, 1);
 			tween_gameOverContainer.fadeTo(1);
 			Starling.juggler.add(tween_gameOverContainer);
+			
+			bg3D.dispose();
 		}
 		
 		private function shakeAnimation(event:Event):void
