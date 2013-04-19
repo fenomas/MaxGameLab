@@ -24,13 +24,13 @@ package
 		/**
 		 * Particle 
 		 */
-		[Embed(source="../media/particles/particleCoffee.pex", mimeType="application/octet-stream")]
+		[Embed(source="/media/particles/particleCoffee.pex", mimeType="application/octet-stream")]
 		public static var ParticleCoffeeXML:Class;
 		
-		[Embed(source="../media/particles/particleMushroom.pex", mimeType="application/octet-stream")]
+		[Embed(source="/media/particles/particleMushroom.pex", mimeType="application/octet-stream")]
 		public static var ParticleMushroomXML:Class;
 		
-		[Embed(source="../media/particles/texture.png")]
+		[Embed(source="/media/particles/texture.png")]
 		public static var ParticleTexture:Class;
 	}
 }

@@ -30,28 +30,28 @@ package
 		/**
 		 *  Regular font used for UI.
 		 */		
-		[Embed(source="../media/fonts/bitmap/fontRegular.png")]
+		[Embed(source="/media/fonts/bitmap/fontRegular.png")]
 		public static const Font_Regular:Class;
 		
-		[Embed(source="../media/fonts/bitmap/fontRegular.fnt", mimeType="application/octet-stream")]
+		[Embed(source="/media/fonts/bitmap/fontRegular.fnt", mimeType="application/octet-stream")]
 		public static const XML_Regular:Class;
 		
 		/**
 		 * Font for score label. 
 		 */		
-		[Embed(source="../media/fonts/bitmap/fontScoreLabel.png")]
+		[Embed(source="/media/fonts/bitmap/fontScoreLabel.png")]
 		public static const Font_ScoreLabel:Class;
 		
-		[Embed(source="../media/fonts/bitmap/fontScoreLabel.fnt", mimeType="application/octet-stream")]
+		[Embed(source="/media/fonts/bitmap/fontScoreLabel.fnt", mimeType="application/octet-stream")]
 		public static const XML_ScoreLabel:Class;
 		
 		/**
 		 * Font for score value. 
 		 */		
-		[Embed(source="../media/fonts/bitmap/fontScoreValue.png")]
+		[Embed(source="/media/fonts/bitmap/fontScoreValue.png")]
 		public static const Font_ScoreValue:Class;
 		
-		[Embed(source="../media/fonts/bitmap/fontScoreValue.fnt", mimeType="application/octet-stream")]
+		[Embed(source="/media/fonts/bitmap/fontScoreValue.fnt", mimeType="application/octet-stream")]
 		public static const XML_ScoreValue:Class;
 		
 		/**

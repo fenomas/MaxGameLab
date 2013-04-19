@@ -26,28 +26,28 @@ package
 		/**
 		 * Embedded sound files. 
 		 */		
-		[Embed(source="../media/sounds/bgGame.mp3")]
+		[Embed(source="/media/sounds/bgGame.mp3")]
 		public static const SND_BG_GAME:Class;
 		
-		[Embed(source="../media/sounds/bgWelcome.mp3")]
+		[Embed(source="/media/sounds/bgWelcome.mp3")]
 		public static const SND_BG_MAIN:Class;
 		
-		[Embed(source="../media/sounds/eat.mp3")]
+		[Embed(source="/media/sounds/eat.mp3")]
 		public static const SND_EAT:Class;
 		
-		[Embed(source="../media/sounds/coffee.mp3")]
+		[Embed(source="/media/sounds/coffee.mp3")]
 		public static const SND_COFFEE:Class;
 		
-		[Embed(source="../media/sounds/mushroom.mp3")]
+		[Embed(source="/media/sounds/mushroom.mp3")]
 		public static const SND_MUSHROOM:Class;
 		
-		[Embed(source="../media/sounds/hit.mp3")]
+		[Embed(source="/media/sounds/hit.mp3")]
 		public static const SND_HIT:Class;
 		
-		[Embed(source="../media/sounds/hurt.mp3")]
+		[Embed(source="/media/sounds/hurt.mp3")]
 		public static const SND_HURT:Class;
 		
-		[Embed(source="../media/sounds/lose.mp3")]
+		[Embed(source="/media/sounds/lose.mp3")]
 		public static const SND_LOSE:Class;
 		
 		/**

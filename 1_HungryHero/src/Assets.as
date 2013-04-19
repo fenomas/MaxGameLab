@@ -32,19 +32,19 @@ package
 		/**
 		 * Texture Atlas 
 		 */
-		[Embed(source="../media/graphics/mySpritesheet.png")]
+		[Embed(source="/media/graphics/mySpritesheet.png")]
 		public static const AtlasTextureGame:Class;
 		
-		[Embed(source="../media/graphics/mySpritesheet.xml", mimeType="application/octet-stream")]
+		[Embed(source="/media/graphics/mySpritesheet.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlGame:Class;
 		
 		/**
 		 * Background Assets 
 		 */
-		[Embed(source="../media/graphics/bgLayer1.jpg")]
+		[Embed(source="/media/graphics/bgLayer1.jpg")]
 		public static const BgLayer1:Class;
 		
-		[Embed(source="../media/graphics/bgWelcome.jpg")]
+		[Embed(source="/media/graphics/bgWelcome.jpg")]
 		public static const BgWelcome:Class;
 		
 		/**
