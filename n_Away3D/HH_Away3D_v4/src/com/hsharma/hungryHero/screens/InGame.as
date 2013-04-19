@@ -692,8 +692,10 @@ package com.hsharma.hungryHero.screens
 		{
 			touch = event.getTouch(stage);
 			
-			touchX = touch.globalX;
-			touchY = touch.globalY;
+			if (touch) {
+				touchX = touch.globalX;
+				touchY = touch.globalY;
+			}
 		}
 		
 		/**
