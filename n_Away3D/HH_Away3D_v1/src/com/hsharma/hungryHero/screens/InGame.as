@@ -15,6 +15,7 @@ package com.hsharma.hungryHero.screens
 {
 	import com.hsharma.hungryHero.events.NavigationEvent;
 	import com.hsharma.hungryHero.gameElements.GameBackground;
+	import com.hsharma.hungryHero.gameElements.GameBackground3D;
 	import com.hsharma.hungryHero.gameElements.Hero;
 	import com.hsharma.hungryHero.gameElements.Item;
 	import com.hsharma.hungryHero.gameElements.Obstacle;
@@ -240,10 +241,16 @@ package com.hsharma.hungryHero.screens
 		/** Tween object for game over container. */
 		private var tween_gameOverContainer:Tween;
 		
+		
+		// a container object for a 3D background - added by andy
+		private var bg3D:GameBackground3D;
+		
+		
+		
 		// ------------------------------------------------------------------------------------------------------------
 		// METHODS
 		// ------------------------------------------------------------------------------------------------------------
-
+		
 		public function InGame()
 		{
 			super();
@@ -278,6 +285,9 @@ package com.hsharma.hungryHero.screens
 			// Draw background.
 			bg = new GameBackground();
 			this.addChild(bg);
+			
+			// create Away3D background layer
+			bg3D = new GameBackground3D();
 			
 			// Is hardware rendering, draw particles.
 			if (isHardwareRendering)
@@ -537,6 +547,9 @@ package com.hsharma.hungryHero.screens
 			// Dispose screen temporarily.
 			disposeTemporarily();
 			
+			// init 3D background layer
+			bg3D.init();
+			
 			this.visible = true;
 			
 			// Calculate elapsed time.
@@ -675,8 +688,10 @@ package com.hsharma.hungryHero.screens
 		{
 			touch = event.getTouch(stage);
 			
-			touchX = touch.globalX;
-			touchY = touch.globalY;
+			if (touch) {
+				touchX = touch.globalX;
+				touchY = touch.globalY;
+			}
 		}
 		
 		/**

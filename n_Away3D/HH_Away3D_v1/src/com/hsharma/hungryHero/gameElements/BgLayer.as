@@ -13,6 +13,9 @@
 
 package com.hsharma.hungryHero.gameElements
 {
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	
 	import starling.display.BlendMode;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -57,10 +60,19 @@ package com.hsharma.hungryHero.gameElements
 			
 			if (_layer == 1)
 			{
+				/*
 				image1 = new Image(Assets.getTexture("BgLayer" + _layer));
 				image1.blendMode = BlendMode.NONE;
 				image2 = new Image(Assets.getTexture("BgLayer" + _layer));
 				image2.blendMode = BlendMode.NONE;
+				*/
+				
+				// replace the backmost BG layer with a transparent texture, allowing Starling 
+				// to catch touch events but letting the Away3D layer underneath show through
+				image1 = Image.fromBitmap( new Bitmap( new BitmapData(10,10,true,0) ) );
+				image2 = Image.fromBitmap( new Bitmap( new BitmapData(10,10,true,0) ) );
+				image1.width = image2.width = stage.stageWidth;
+				image1.height = image2.height = stage.stageHeight;
 			}
 			else
 			{
