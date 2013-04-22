@@ -6,9 +6,7 @@ package com.hsharma.hungryHero.gameElements
 	
 	import away3d.containers.View3D;
 	import away3d.entities.Mesh;
-	import away3d.lights.PointLight;
 	import away3d.materials.TextureMaterial;
-	import away3d.materials.lightpickers.StaticLightPicker;
 	import away3d.primitives.SphereGeometry;
 	import away3d.textures.BitmapTexture;
 
@@ -21,7 +19,6 @@ package com.hsharma.hungryHero.gameElements
 		// new vars added for 3D background
 		private var view:View3D;
 		private var asteroid:Mesh;
-		private var light:PointLight;
 		
 		
 		public function GameBackground3D()
@@ -34,21 +31,6 @@ package com.hsharma.hungryHero.gameElements
 			// get a reference to the Away3D instance's view
 			view = HungryHero.away3Dview;
 			
-			// light has to come first, so materials can reference it
-			light = new PointLight();
-			light.specular = 0;
-			light.ambient = 0.15;
-			light.diffuse = 0.7;
-			
-			// make light shine from the user's upper middle-right
-			light.x = 300;
-			light.y = 500;
-			light.z = -500;
-			
-			// light pickers decide which materials are affected by which lights
-			var picker:StaticLightPicker = new StaticLightPicker( [light] );
-			view.scene.addChild(light);
-			
 			
 			// texture - for simplicity, use some simple black and white perlin noise
 			var texture:BitmapData = new BitmapData(128, 128, false, 0);
@@ -56,9 +38,6 @@ package com.hsharma.hungryHero.gameElements
 			
 			// material to apply to mesh
 			var matl:TextureMaterial = new TextureMaterial( new BitmapTexture(texture));
-			
-			// make this material be affected by our light
-			matl.lightPicker = picker;
 			
 			// spehrical mesh to be an asteroid
 			asteroid = new Mesh( new SphereGeometry( 200,6,6), matl );
