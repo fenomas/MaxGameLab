@@ -11,13 +11,17 @@
  *  
  */
 
-package com.hsharma.hungryHero.objectPools {
-	import com.hsharma.hungryHero.gameElements.Item;
+package com.hsharma.hungryHero.objectPools
+{
+	import com.hsharma.hungryHero.gameElements.Obstacle;
 	
 	/**
-	 * 		TODO
+	 * This class handles the Object Pooling for the obstacles.
+	 *  
+	 * @author hsharma
+	 * 
 	 */
-	public class PoolItem {
+	public class PoolObstacle {
 		
 		
 		/** Function to be called when the object is to be created. */
@@ -27,16 +31,16 @@ package com.hsharma.hungryHero.objectPools {
 		public var clean:Function;
 		
 		/** Objects in the pool. */
-		private var list:Vector.<Item> = new Vector.<Item>();
+		private var list:Vector.<Obstacle> = new Vector.<Obstacle>();
 		
 		
 		
 		/**
-		* Object pool. 			TODO!
-		*
-		*/
+		 * Object pool. 			TODO!
+		 *
+		 */
 		
-		public function PoolItem(create:Function, clean:Function = null, minSize:int = 50, maxSize:int = 200)
+		public function PoolObstacle(create:Function, clean:Function = null, minSize:int = 50, maxSize:int = 200)
 		{
 			this.create = create;
 			this.clean = clean;
@@ -49,7 +53,7 @@ package com.hsharma.hungryHero.objectPools {
 		/**
 		 * TODO
 		 */
-		public function checkOut():Item
+		public function checkOut():Obstacle
 		{
 			list.push( create() );
 			return list[ list.length-1 ];
@@ -59,9 +63,9 @@ package com.hsharma.hungryHero.objectPools {
 		/**
 		 * TODO
 		 */
-		public function checkIn(item:Item):void
+		public function checkIn(item:Obstacle):void
 		{
-			// TODO
+			item.parent.removeChild(item);
 		}
 		
 		

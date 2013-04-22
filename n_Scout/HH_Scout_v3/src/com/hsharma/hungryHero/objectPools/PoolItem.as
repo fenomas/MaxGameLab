@@ -61,7 +61,7 @@ package com.hsharma.hungryHero.objectPools {
 		 */
 		public function checkIn(item:Item):void
 		{
-			// TODO
+			item.parent.removeChild(item);
 		}
 		
 		

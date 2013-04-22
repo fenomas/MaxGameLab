@@ -11,13 +11,17 @@
  *  
  */
 
-package com.hsharma.hungryHero.objectPools {
-	import com.hsharma.hungryHero.gameElements.Item;
+package com.hsharma.hungryHero.objectPools
+{
+	import com.hsharma.hungryHero.gameElements.Particle;
 	
 	/**
-	 * 		TODO
+	 * This class handles the Object Pooling for the Particles.
+	 *  
+	 * @author hsharma
+	 * 
 	 */
-	public class PoolItem {
+	public class PoolParticle {
 		
 		
 		/** Function to be called when the object is to be created. */
@@ -27,16 +31,16 @@ package com.hsharma.hungryHero.objectPools {
 		public var clean:Function;
 		
 		/** Objects in the pool. */
-		private var list:Vector.<Item> = new Vector.<Item>();
+		private var list:Vector.<Particle> = new Vector.<Particle>();
 		
 		
 		
 		/**
-		* Object pool. 			TODO!
-		*
-		*/
+		 * Object pool. 			TODO!
+		 *
+		 */
 		
-		public function PoolItem(create:Function, clean:Function = null, minSize:int = 50, maxSize:int = 200)
+		public function PoolParticle(create:Function, clean:Function = null, minSize:int = 50, maxSize:int = 200)
 		{
 			this.create = create;
 			this.clean = clean;
@@ -49,7 +53,7 @@ package com.hsharma.hungryHero.objectPools {
 		/**
 		 * TODO
 		 */
-		public function checkOut():Item
+		public function checkOut():Particle
 		{
 			list.push( create() );
 			return list[ list.length-1 ];
@@ -59,9 +63,9 @@ package com.hsharma.hungryHero.objectPools {
 		/**
 		 * TODO
 		 */
-		public function checkIn(item:Item):void
+		public function checkIn(item:Particle):void
 		{
-			// TODO
+			item.parent.removeChild(item);
 		}
 		
 		
@@ -71,3 +75,4 @@ package com.hsharma.hungryHero.objectPools {
 		
 	}
 }
+
