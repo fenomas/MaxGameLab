@@ -20,9 +20,6 @@ package
 	
 	import flash.media.SoundMixer;
 	
-	import feathers.controls.Button;
-	import feathers.themes.MetalWorksMobileTheme;
-	
 	import starling.display.Sprite;
 	import starling.events.Event;
 	

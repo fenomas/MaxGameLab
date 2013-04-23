@@ -22,7 +22,6 @@ package com.hsharma.hungryHero.screens
 	
 	import feathers.controls.List;
 	import feathers.data.ListCollection;
-	import feathers.themes.MetalWorksMobileTheme;
 	
 	import starling.animation.Transitions;
 	import starling.animation.Tween;
@@ -85,7 +84,8 @@ package com.hsharma.hungryHero.screens
 		
 		
 		private var scoresBtn:Button;
-		private var theme:MetalWorksMobileTheme;
+		private var list:List;
+		private var theme:SimpleTheme;
 		
 		public function Welcome()
 		{
@@ -186,16 +186,21 @@ package com.hsharma.hungryHero.screens
 			
 			// Step 6:
 			
-			theme = new MetalWorksMobileTheme(this.stage);
+			theme = new SimpleTheme(this.stage);
 
-			var leaderboardData:ListCollection = new ListCollection();
+			var leaderboardData:ListCollection;
+			var data:Array = [];
+			var val:int = 0;
 			for (var i:int = 0; i < 50; i++) 
 			{
-				leaderboardData.push({text: String.fromCharCode(Math.random()*26 + 65) + String.fromCharCode(Math.random()*26 + 65) + String.fromCharCode(Math.random()*26 + 65)
-					+": " + Math.floor(Math.random() *0xffff + 100), icon: Assets.getAtlas().getTexture("item" + Math.floor((Math.random()*5 + 1)))});
+				val = Math.floor(Math.random() *0xffff + 100);
+				data.push({text: String.fromCharCode(Math.random()*26 + 65) + String.fromCharCode(Math.random()*26 + 65) + String.fromCharCode(Math.random()*26 + 65)
+					+": " + val,val: val, icon: Assets.getAtlas().getTexture("item" + Math.floor((Math.random()*5 + 1)))});
 			}
+			data.sortOn("val",Array.DESCENDING | Array.NUMERIC);
+			leaderboardData = new ListCollection(data);
 			
-			var list:List = new List();
+			list = new List();
 			list.isSelectable = false;
 			list.x = 60;
 			list.y = 230;
@@ -205,6 +210,7 @@ package com.hsharma.hungryHero.screens
 			list.itemRendererProperties.iconSourceField = "icon";
 			list.dataProvider = leaderboardData;
 			this.addChild( list );
+			
 		}
 		
 		/**
@@ -293,6 +299,7 @@ package com.hsharma.hungryHero.screens
 			playBtn.visible = false;
 			aboutBtn.visible = false;
 			scoresBtn.visible = false;
+			list.visible = true;
 			
 			hsharmaBtn.visible = false;
 			starlingBtn.visible = false;
@@ -322,6 +329,7 @@ package com.hsharma.hungryHero.screens
 			aboutBtn.visible = true;
 			// Step 4: 
 			scoresBtn.visible = true;
+			list.visible = false;
 			
 			aboutText.visible = false;
 			hsharmaBtn.visible = false;
