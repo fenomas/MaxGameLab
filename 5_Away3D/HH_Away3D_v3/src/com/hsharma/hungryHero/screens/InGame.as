@@ -14,8 +14,8 @@
 package com.hsharma.hungryHero.screens
 {
 	import com.hsharma.hungryHero.events.NavigationEvent;
-	import com.hsharma.hungryHero.gameElements.GameBackground3D;
 	import com.hsharma.hungryHero.gameElements.GameBackground;
+	import com.hsharma.hungryHero.gameElements.GameBackground3D;
 	import com.hsharma.hungryHero.gameElements.Hero;
 	import com.hsharma.hungryHero.gameElements.Item;
 	import com.hsharma.hungryHero.gameElements.Obstacle;
@@ -244,7 +244,7 @@ package com.hsharma.hungryHero.screens
 		
 		// a container object for a 3D background - added by andy
 		private var bg3D:GameBackground3D;
-
+		
 		
 		
 		// ------------------------------------------------------------------------------------------------------------

@@ -16,7 +16,6 @@ package com.hsharma.hungryHero.gameElements
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	
-	import starling.display.BlendMode;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
