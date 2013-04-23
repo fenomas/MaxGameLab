@@ -28,6 +28,7 @@ package com.hsharma.hungryHero.screens
 	
 	import flash.geom.Rectangle;
 	import flash.media.SoundMixer;
+	import flash.profiler.Telemetry;
 	import flash.utils.getTimer;
 	
 	import starling.animation.Tween;
@@ -688,10 +689,6 @@ package com.hsharma.hungryHero.screens
 		 */
 		private function onGameTick(event:Event):void
 		{
-			// debugging line
-			trace(this.numChildren);
-			
-			
 			// If not paused, tick the game.
 			if (!gamePaused)
 			{
@@ -844,11 +841,27 @@ package com.hsharma.hungryHero.screens
 						heroX = hero.x;
 						heroY = hero.y;
 						
+						
+						
+						// two similar ways of reporting a value to Scout
+						trace( "Items:" + itemsToAnimate.length );
+						Telemetry.sendMetric( "Items", itemsToAnimate.length );
+						
+						// begin a custom Telemetry span by acquiring a marker
+						var marker:Number = Telemetry.spanMarker;
+						
 						// Animate elements.
 						animateFoodItems();
 						animateObstacles();
 						animateEatParticles();
 						animateWindParticles();
+						
+						// send out the custom span metric
+						Telemetry.sendSpanMetric("Items animated", marker, itemsToAnimate.length);
+						
+						
+						
+						
 						
 						// Set the background's speed based on hero's speed.
 						bg.speed = playerSpeed * elapsed;

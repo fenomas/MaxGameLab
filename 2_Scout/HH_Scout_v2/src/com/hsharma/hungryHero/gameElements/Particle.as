@@ -59,8 +59,6 @@ package com.hsharma.hungryHero.gameElements
 			particleImage.x = particleImage.width/2;
 			particleImage.y = particleImage.height/2;
 			this.addChild(particleImage);
-			
-			this.touchable = false;
 		}
 
 		/**

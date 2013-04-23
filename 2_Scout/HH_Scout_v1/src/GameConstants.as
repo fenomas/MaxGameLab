@@ -78,10 +78,10 @@ package
 		public static const HERO_LIVES:int = 5;
 		
 		/** Hero's minimum speed. */
-		public static const HERO_MIN_SPEED:Number = 1400;
+		public static const HERO_MIN_SPEED:Number = 650;
 		
 		/** Hero's maximum speed when had coffee. */		
-		public static const HERO_MAX_SPEED:Number = 2400;
+		public static const HERO_MAX_SPEED:Number = 1400;
 		
 		/** Movement speed - game/player/items/obstacles speed. */
 		public static const GRAVITY:Number = 10;
@@ -89,7 +89,7 @@ package
 		// Obstacle properties -------------------------------------
 		
 		/** Obstacle frequency. */
-		public static const OBSTACLE_GAP:Number = 10200;
+		public static const OBSTACLE_GAP:Number = 1200;
 		
 		/** Obstacle speed. */		
 		public static const OBSTACLE_SPEED:Number = 300;

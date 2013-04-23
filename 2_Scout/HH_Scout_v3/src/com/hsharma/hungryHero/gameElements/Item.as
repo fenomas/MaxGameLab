@@ -35,6 +35,7 @@ package com.hsharma.hungryHero.gameElements
 			super();
 			
 			this.foodItemType = _foodItemType;
+			this.touchable = false;
 		}
 
 		/**

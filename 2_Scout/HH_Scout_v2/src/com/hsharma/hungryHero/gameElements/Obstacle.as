@@ -70,8 +70,6 @@ package com.hsharma.hungryHero.gameElements
 			this._speed = _speed;
 			
 			_alreadyHit = false;
-			
-			this.touchable = false;
 		}
 		
 		/**

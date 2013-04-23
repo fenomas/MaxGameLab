@@ -14,10 +14,7 @@
 package 
 {
 	import flash.display.Bitmap;
-	import flash.display.BitmapData;
-	import flash.profiler.Telemetry;
 	import flash.utils.Dictionary;
-	import flash.utils.getTimer;
 	
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
@@ -62,22 +59,6 @@ package
 		 */
 		public static function getAtlas():TextureAtlas
 		{
-			// report span metric to Scout
-			Telemetry.sendSpanMetric("Assets.getAtlas() was called ---------", marker );
-			
-			
-			// marker for span metric
-			var marker:Number = Telemetry.spanMarker;
-			
-			// waste time for a very short while
-			var t:int = getTimer();
-			while (getTimer() < t+2) { };
-			
-			// Or the following, for a timer in microseconds: will fail if Telemetry is not connected!
-			//while(Telemetry.spanMarker < marker+100) {};
-			
-			
-			
 			if (gameTextureAtlas == null)
 			{
 				var texture:Texture = getTexture("AtlasTextureGame");
@@ -86,7 +67,6 @@ package
 			}
 			
 			return gameTextureAtlas;
-			
 		}
 		
 		/**
@@ -97,32 +77,6 @@ package
 		 */
 		public static function getTexture(name:String):Texture
 		{
-			// two equivalent ways of reporting a single event to Scout
-			Telemetry.sendMetric( "Assets.getTexture() was called", name );
-			
-			
-			//trace("Assets.getTexture() was called: " + name);
-			
-			
-			var marker:Number = Telemetry.spanMarker;
-			
-			// waste time for a very short while
-			var t:int = getTimer();
-			while (getTimer() < t+2) { };
-			
-			// Or the following, for a timer in microseconds: will fail if Telemetry is not connected!
-			//while(Telemetry.spanMarker < marker+100) {};
-			
-			// report span metric to Scout
-			Telemetry.sendSpanMetric("Assets.getTexture() was called ---------", marker );
-			
-			if (name.substr(0,1)=="B") {
-				//return Texture.fromBitmapData(new BitmapData(30,30,false,0xFF0000));
-			}
-			
-			//var bitmap:Bitmap = new Assets[name]();
-			//return Texture.fromBitmap(bitmap);
-			
 			if (gameTextures[name] == undefined)
 			{
 				var bitmap:Bitmap = new Assets[name]();
